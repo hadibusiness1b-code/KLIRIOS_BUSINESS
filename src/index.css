@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'IBM Plex Sans Arabic', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Cairo', ui-sans-serif, system-ui, sans-serif;
+  --font-cinzel: 'Cinzel', serif;
+  --color-klirios-blue: #00A3FF;
+  --color-klirios-black: #000000;
+  --color-klirios-silver: #E2E8F0;
+  --color-klirios-dark: #0A0A0A;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-klirios-black);
+    color: var(--color-klirios-silver);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+}

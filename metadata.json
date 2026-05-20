@@ -1,0 +1,6 @@
+{
+  "name": "KLIRIOS",
+  "description": "High-end corporate enterprise AI landing page",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
