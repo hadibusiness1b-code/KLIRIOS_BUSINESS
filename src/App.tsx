@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Bot, Cpu, Network, Database, Layers, ShieldCheck } from 'lucide-react';
+import { ChatWidget } from './components/ChatWidget';
 
 const bentoCards = [
   {
@@ -122,11 +123,11 @@ export default function App() {
         </div>
 
         {/* Button - Left side in RTL */}
-        <button className="relative overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md text-white hover:border-[#00A3FF]/50 hover:bg-[#00A3FF]/10 transition-all duration-500 rounded-sm px-8 py-3 text-sm font-heading font-bold tracking-wide group">
+        <a href="mailto:hadi.business.1b@gmail.com" className="relative overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md text-white hover:border-[#00A3FF]/50 hover:bg-[#00A3FF]/10 transition-all duration-500 rounded-sm px-8 py-3 text-sm font-heading font-bold tracking-wide group inline-block">
           <div className="absolute inset-0 bg-gradient-to-r from-[#00A3FF]/0 via-[#00A3FF]/20 to-[#00A3FF]/0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out"></div>
           <span className="relative z-10 group-hover:drop-shadow-[0_0_8px_rgba(0,163,255,0.8)] shadow-black transition-all duration-300">تواصل معنا</span>
           <div className="absolute inset-0 border border-[#00A3FF] rounded-sm opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-300"></div>
-        </button>
+        </a>
       </nav>
 
       {/* Hero Section (Cinematic & Artistic Corporate Identity) */}
@@ -285,18 +286,26 @@ export default function App() {
         >
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-12 tracking-tight">نخبة الذكاء الاصطناعي بين يديك</h2>
           
-          <div className="w-full max-w-lg relative mb-10">
-            <input 
-              type="email" 
-              placeholder="البريد الإلكتروني المؤسسي" 
-              className="w-full bg-black border border-white/10 rounded-md px-6 py-5 text-white text-right focus:outline-none focus:border-[#00A3FF] focus:shadow-[0_0_15px_rgba(0,163,255,0.1)] transition-all font-sans text-lg placeholder:text-gray-600"
-              dir="rtl"
-            />
-          </div>
-          
-          <button className="bg-[#00A3FF] hover:bg-[#0082CC] text-white font-semibold font-sans py-4 px-16 rounded-md transition-all duration-300 text-lg shadow-[0_0_20px_rgba(0,163,255,0.2)] hover:shadow-[0_0_30px_rgba(0,163,255,0.4)]">
-            احجز استشارة استراتيجية
-          </button>
+          <form action="https://formsubmit.co/hadi.business.1b@gmail.com" method="POST" className="w-full max-w-lg flex flex-col items-center">
+            <input type="hidden" name="_subject" value="طلب استشارة استراتيجية جديد!" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            
+            <div className="w-full relative mb-10">
+              <input 
+                type="email" 
+                name="email"
+                required
+                placeholder="البريد الإلكتروني المؤسسي" 
+                className="w-full bg-black border border-white/10 rounded-md px-6 py-5 text-white text-right focus:outline-none focus:border-[#00A3FF] focus:shadow-[0_0_15px_rgba(0,163,255,0.1)] transition-all font-sans text-lg placeholder:text-gray-600"
+                dir="rtl"
+              />
+            </div>
+            
+            <button type="submit" className="bg-[#00A3FF] hover:bg-[#0082CC] text-white font-semibold font-sans py-4 px-16 rounded-md transition-all duration-300 text-lg shadow-[0_0_20px_rgba(0,163,255,0.2)] hover:shadow-[0_0_30px_rgba(0,163,255,0.4)]">
+              احجز استشارة استراتيجية
+            </button>
+          </form>
         </motion.div>
         
         <div className="mt-40 flex flex-col items-center gap-4 text-gray-700 font-mono tracking-widest uppercase">
@@ -313,6 +322,8 @@ export default function App() {
           }
         }
       `}</style>
+
+      <ChatWidget />
     </div>
   );
 }
