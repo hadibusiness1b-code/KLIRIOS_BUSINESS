@@ -38,7 +38,8 @@ export function ChatWidget() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/webhook", {
+      const n8nWebhookUrl = "https://gasem111.app.n8n.cloud/webhook/316d10fa-2448-4f0e-ac01-c5842c97289e";
+      const response = await fetch(n8nWebhookUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -64,11 +65,11 @@ export function ChatWidget() {
         const botMsg: Message = { id: (Date.now() + 1).toString(), text: botText, isBot: true };
         setMessages(prev => [...prev, botMsg]);
       } else {
-        throw new Error("Network response was not ok");
+        throw new Error(`خطأ من الخادم: ${response.status}`);
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Chat error:', error);
-      const errorMsg: Message = { id: (Date.now() + 1).toString(), text: "عذراً، حدث خطأ في الاتصال بالخادم.", isBot: true };
+      const errorMsg: Message = { id: (Date.now() + 1).toString(), text: `عذراً، حدث خطأ: الوصلة مع n8n مقفلة. يرجى تفعيل الـ CORS في إعدادات Webhook. (${error.message})`, isBot: true };
       setMessages(prev => [...prev, errorMsg]);
     } finally {
       setIsLoading(false);
